@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel='stylesheet prefetch' href='css/onsenui.css'>
+    <link rel='stylesheet prefetch' href='css/onsen-css-components.css'>
+    <link rel='stylesheet prefetch' href='css/login.css'>
+  </head>
+  <body >
+    <ons-navigator title="Login" var="myLogin">
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">Login</div>
+    </ons-toolbar>
+    <div style="text-align: center" ng-controller="AppController"  class="login-form">
+      <br>
+      <ons-list>
+      <ons-list-item>
+      <input type="text" ng-model="youremail" placeholder="Email Address" class="text-input text-input--transparent" style="margin-top:8px; width: 100%;">
+      </ons-list-item>
+      <ons-list-item>
+       <input ng-model="yourpass" type="password" placeholder="PassWord" class="text-input text-input--transparent" style="margin-top:8px; width: 100%;">
+      </ons-list-item>
+      <ons-button modifier="large" ng-click="loginButton()" class="login-button" style="margin-top:8px; width: 100%;text-align: center">
+        Login
+      </ons-button>
+    </div>
+  </ons-page>
+</ons-navigator>
+<ons-template id="page1.html">
+  <ons-page ng-controller="PageController">
+    <ons-toolbar>
+      <div class="left">
+        <ons-back-button>Back</ons-back-button>
+      </div>
+    <div class="center">Profile</div>
+    </ons-toolbar>
+    <ons-list-item>
+        <ons-icon icon="user" size="35px " rotate="90 " fixed-width="true "></ons-icon> 
+        <label type="text" maxlength="50">{{name}}</label>
+    </ons-list-item>
+    <ons-list-item>
+        <label style="width:100px;">Email :</label>
+        <label type="text" maxlength="50">{{email}}</label>
+    </ons-list-item>
+    <ons-list-item>
+        <label style="width:100px;">Tel :</label>
+        <label type="text" maxlength="50">{{tel}}</label>
+    </ons-list-item>
+    <div style="text-align: center">
+      <br/>
+<!--       <ons-button modifier="light" onclick="myLogin.popPage()">
+        Top Page
+      </ons-button> -->
+    </div>
+  </ons-page>
+</ons-template>
+ <ons-template id="alert-dialog.html">
+  <ons-alert-dialog var="alertDialog">
+    <div class="alert-dialog-title"><strong style="color: #ff3333">Login Failed!</strong></div>
+    <div class="alert-dialog-content">
+      <br/>Wrong user name or password<br/>
+    </div>
+    <div class="alert-dialog-footer">
+      <button class="alert-dialog-button" ng-click="alertDialog.hide(); ">OK</button>
+    </div>
+  </ons-alert-dialog>
+</ons-template>
+    <script src='js/angular.min.js'></script>
+    <script src='js/onsenui.min.js'></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
